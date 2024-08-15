@@ -15,6 +15,7 @@ data_*/
 mono_crash.*.json
 
 #zaft itch stuff
+bat/*
 exports/win/*
 exports/lin/*
 exports/web/*
