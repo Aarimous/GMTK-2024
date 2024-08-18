@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqs0u1hw7bmvk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df7gw"]
+bg_color = Color(0, 0, 0, 0.156863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7xt5"]
+bg_color = Color(0.6004, 0.76, 0.418, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7584, 0.96, 0.528, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh82d"]
+bg_color = Color(0.541176, 0.690196, 0.376471, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1frj"]
+bg_color = Color(0.541176, 0.690196, 0.376471, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Buy" type="Button"]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 37.0
+offset_top = 103.0
+offset_right = 137.0
+offset_bottom = 134.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.396889, 0.396889, 0.396889, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0.588235)
+theme_override_colors/font_color = Color(0, 0, 0, 0.392157)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_df7gw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p7xt5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bh82d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1frj")
+text = "  BUY  "

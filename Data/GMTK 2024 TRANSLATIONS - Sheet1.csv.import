@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ti8djqapxca7"
+
+[deps]
+
+files=["res://Data/GMTK 2024 TRANSLATIONS - Sheet1.en.translation"]
+
+source_file="res://Data/GMTK 2024 TRANSLATIONS - Sheet1.csv"
+dest_files=["res://Data/GMTK 2024 TRANSLATIONS - Sheet1.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

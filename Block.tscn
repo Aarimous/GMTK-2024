@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://d00144bi33rs8"]
+
+[ext_resource type="Shader" path="res://TileDissolve.gdshader" id="1_c0xwu"]
+[ext_resource type="Script" path="res://Block.gd" id="1_f37ck"]
+[ext_resource type="Texture2D" uid="uid://c6e3x4vca6usl" path="res://Art/brick_grey.png" id="2_ipskm"]
+[ext_resource type="Texture2D" uid="uid://djfbk5r6eel46" path="res://Art/dirt_grass.png" id="3_o5eof"]
+[ext_resource type="Texture2D" uid="uid://cp4vcdpk0lpt5" path="res://Art/dirt.png" id="4_p884x"]
+[ext_resource type="Texture2D" uid="uid://deabbaqvkg4gm" path="res://Art/gravel_dirt.png" id="5_dhxok"]
+[ext_resource type="Texture2D" uid="uid://cyx2o1pbfd8o6" path="res://Art/gravel_stone.png" id="6_hsvp2"]
+[ext_resource type="Texture2D" uid="uid://btpvo41ctr2in" path="res://Art/stone.png" id="7_4a885"]
+[ext_resource type="Texture2D" uid="uid://c3oq6qn8oes5j" path="res://Art/greystone.png" id="8_hjeak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wvhk"]
+resource_local_to_scene = true
+shader = ExtResource("1_c0xwu")
+shader_parameter/sensitivity = 0.0
+shader_parameter/factor = 8.0
+shader_parameter/seed_x = 1.0
+shader_parameter/seed_y = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4l8pb"]
+size = Vector2(128, 128)
+
+[node name="Block" type="StaticBody2D" groups=["Mineable"]]
+material = SubResource("ShaderMaterial_1wvhk")
+collision_layer = 2
+script = ExtResource("1_f37ck")
+grass_dirt_texture = ExtResource("3_o5eof")
+dirt_texture = ExtResource("4_p884x")
+gravel_texture = ExtResource("5_dhxok")
+gravel_stone_texture = ExtResource("6_hsvp2")
+stone_texture = ExtResource("7_4a885")
+deep_stone_texture = ExtResource("8_hjeak")
+depths = Array[int]([0, 1, 10, 20, 50, 100])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4l8pb")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.2, 0.2, 0.2, 1)
+texture = ExtResource("2_ipskm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+use_parent_material = true
+texture = ExtResource("2_ipskm")

@@ -25,6 +25,10 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Mineable=""
+
 [input]
 
 ui_left={
@@ -63,11 +67,17 @@ jet_pack={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Data/GMTK 2024 TRANSLATIONS - Sheet1.en.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Robot"
 2d_physics/layer_2="Terrain"
 2d_physics/layer_3="Walls"
+2d_physics/layer_4="Fake Robot"
+2d_physics/layer_5="Fake Walls"
 
 [rendering]
 

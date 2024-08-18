@@ -5,4 +5,4 @@ func _ready() -> void:
 	_on_money_changed(Global.money)
 
 func _on_money_changed(new_value):
-	text = str("$", Global.money)
+	text = str("$", snappedf(Global.money, 0.01))

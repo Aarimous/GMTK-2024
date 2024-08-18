@@ -14,12 +14,16 @@ var velocity_to_damage_scale = 0.0
 var bounce_speed = -500
 var bounce_energy_cost = 1.0
 
-var jet_pack_speed = -100
-var jet_pack_cost_per_second = 1.0
+var jet_pack_speed = 0
+var jet_pack_cost_per_second_base = 1.0
+
+var money_per_hit_scale = 0.0
+var money_per_break_scale = 0.0
 
 
-#6
-var energy_base = 6
+
+#4.2
+var energy_base = 4.2
 
 
 
@@ -31,3 +35,11 @@ func apply_upgrade_tier(upgrade_tier : UpgradeTier):
 			energy_base += upgrade_tier.increase_amount
 		Global.UPGRADE_TYPES.MOVEMENT_SPEED_BASE:
 			horizontal_movement_speed_base += upgrade_tier.increase_amount
+		Global.UPGRADE_TYPES.MONEY_ON_HIT_SCALE:
+			money_per_hit_scale += upgrade_tier.increase_amount
+		Global.UPGRADE_TYPES.MONEY_ON_BREAK_SCALE:
+			money_per_break_scale += upgrade_tier.increase_amount
+		Global.UPGRADE_TYPES.JETPACK_SPEED:
+			jet_pack_speed += upgrade_tier.increase_amount
+		Global.UPGRADE_TYPES.VELOCITY_TO_DAMAGE_SCALE:
+			velocity_to_damage_scale += upgrade_tier.increase_amount

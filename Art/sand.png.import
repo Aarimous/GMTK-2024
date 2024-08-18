@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxnl1tck5fxfb"
-path="res://.godot/imported/Base_Hex.png-bd42271088da8bc234cab900a9d5a137.ctex"
+uid="uid://bc5hoho7aft4d"
+path="res://.godot/imported/sand.png-1989d183da9f60b69c2a022dd7f0bdc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Robot/Base_Hex.png"
-dest_files=["res://.godot/imported/Base_Hex.png-bd42271088da8bc234cab900a9d5a137.ctex"]
+source_file="res://Art/sand.png"
+dest_files=["res://.godot/imported/sand.png-1989d183da9f60b69c2a022dd7f0bdc7.ctex"]
 
 [params]
 

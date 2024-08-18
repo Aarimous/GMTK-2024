@@ -1,16 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://v5k2a01o8wtd"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpaoytt3lg78q"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_p64ta"]
-[ext_resource type="PackedScene" uid="uid://etqcwr4mjn3o" path="res://Player.tscn" id="3_lwi5s"]
-[ext_resource type="Script" path="res://Camera Pivot.gd" id="4_cceof"]
-[ext_resource type="PackedScene" uid="uid://b1frdap1hlgjr" path="res://Cave.tscn" id="4_kgewa"]
-[ext_resource type="PackedScene" uid="uid://bs6ake32782hc" path="res://Money.tscn" id="5_84nbp"]
-[ext_resource type="StyleBox" uid="uid://cp1s0ctanv1l4" path="res://UI_Stylebox_Money_Energy.tres" id="6_obbap"]
-[ext_resource type="Theme" uid="uid://riwr042vts6v" path="res://Theme.tres" id="6_resgg"]
-[ext_resource type="PackedScene" uid="uid://byydjde0hluqq" path="res://EnergyUI.tscn" id="7_skafl"]
-[ext_resource type="PackedScene" uid="uid://c7gu8opopilxe" path="res://Upgrades.tscn" id="8_7n8cr"]
-
-[sub_resource type="Shader" id="Shader_svgo8"]
+[sub_resource type="Shader" id="Shader_yp1y1"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -129,12 +119,12 @@ vec4 generate_cracks(vec2 uv) {
         U *= 1.5;
     }
     color *= crack_color;
-	
+
 	return color;
 }
 
 
-void fragment() {	
+void fragment() {
 	COLOR =  generate_cracks(UV);
 	vec4 orig_color = COLOR;
 	vec4 adjacent_color = generate_cracks(UV + TEXTURE_PIXEL_SIZE * reflection_offset);
@@ -146,9 +136,9 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uq0tm"]
+[resource]
 resource_local_to_scene = true
-shader = SubResource("Shader_svgo8")
+shader = SubResource("Shader_yp1y1")
 shader_parameter/crack_depth = 2.236
 shader_parameter/crack_scale = 4.0
 shader_parameter/crack_zebra_scale = 2.67
@@ -159,66 +149,3 @@ shader_parameter/crack_width = 0.042
 shader_parameter/refraction_offset = Vector2(0, 0)
 shader_parameter/reflection_offset = Vector2(1, 1)
 shader_parameter/reflection_color = Color(0, 0, 0, 0.5)
-
-[node name="Main" type="Node2D"]
-script = ExtResource("1_p64ta")
-cave_packed = ExtResource("4_kgewa")
-player_pakced = ExtResource("3_lwi5s")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 384.0
-offset_bottom = 184.0
-theme = ExtResource("6_resgg")
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Energy" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("7_skafl")]
-layout_mode = 2
-
-[node name="Money" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("5_84nbp")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 56
-horizontal_alignment = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(420, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("6_obbap")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Camera Pivot" type="Marker2D" parent="."]
-position = Vector2(64, 0)
-script = ExtResource("4_cceof")
-
-[node name="Camera2D" type="Camera2D" parent="Camera Pivot"]
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.33
-drag_top_margin = 0.8
-drag_right_margin = 0.33
-drag_bottom_margin = 0.0
-
-[node name="Cave" parent="." instance=ExtResource("4_kgewa")]
-unique_name_in_owner = true
-tile_dissolve_shader_material = SubResource("ShaderMaterial_uq0tm")
-
-[node name="Upgrades" parent="." instance=ExtResource("8_7n8cr")]
-process_mode = 3
-visible = false

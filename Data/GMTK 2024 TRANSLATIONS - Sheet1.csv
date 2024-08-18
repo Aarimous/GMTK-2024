@@ -1,0 +1,8 @@
+key,en
+DAMAGE_BASE,Damage
+ENERGY_BASE,Energy
+MOVEMENT_SPEED_BASE,Horizontal Speed
+MONEY_ON_HIT_SCALE,$ On Hit
+MONEY_ON_BREAK_SCALE,$ On Break
+JETPACK_SPEED,Jetpack Speed
+VELOCITY_TO_DAMAGE_SCALE,Velocity to Damage

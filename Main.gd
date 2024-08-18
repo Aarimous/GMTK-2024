@@ -8,7 +8,8 @@ class_name Main
 @export var player_pakced : PackedScene
 
 var player : Player
-var cave : Cave
+@onready var cave: Cave = $Cave
+
 
 func _ready():
 	Global.main = self
@@ -16,23 +17,26 @@ func _ready():
 	
 
 func start_run():
+	
+	#cave = cave_packed.instantiate()
+	#add_child(cave)
+	
+	cave.reset_cave()
+	
 	player = player_pakced.instantiate()
 	player.global_position = Vector2(64, -384)
 	add_child(player)
 	$"Camera Pivot".player = player
-	
-	
-	
-	cave = cave_packed.instantiate()
-	add_child(cave)
-	
 	upgrades.hide()
 	
 	
+	
+	
 func end_run():
+	upgrades.on_run_ended()
 	$"Camera Pivot".player = null
 	player.queue_free()
-	cave.queue_free()
+	#cave.queue_free()
 	
 	upgrades.show()
 	

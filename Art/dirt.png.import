@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwjqqdk1wg2tw"
-path="res://.godot/imported/Base_Hex_Outline.png-4413760037022cd06eb7ed31dde28d64.ctex"
+uid="uid://cp4vcdpk0lpt5"
+path="res://.godot/imported/dirt.png-17be2490f153b27ca50a93c9476a09a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Robot/Base_Hex_Outline.png"
-dest_files=["res://.godot/imported/Base_Hex_Outline.png-4413760037022cd06eb7ed31dde28d64.ctex"]
+source_file="res://Art/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-17be2490f153b27ca50a93c9476a09a2.ctex"]
 
 [params]
 

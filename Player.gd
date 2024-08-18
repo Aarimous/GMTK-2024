@@ -1,15 +1,17 @@
 extends CharacterBody2D
 class_name Player
 
+@export var is_active = true
+
 
 var energy : float :
 	set(new_value):
-		energy = new_value
-		Global.energy_changed.emit(energy)
-		
-		if energy <= 0:
-			Global.main.end_run()
-		#print("New Energy: ", energy)
+		if is_active:
+			energy = new_value
+			Global.energy_changed.emit(energy)
+			
+			if energy <= 0:
+				Global.main.end_run()
 		
 
 func _ready():
@@ -22,11 +24,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y += Global.mods.gravity * delta
 	else:
 		velocity.y += Global.mods.gravity * delta * Global.mods.gravity_fall_scale
-
+	
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	if direction != 0:
-		energy -= Global.mods.horizontal_movement_energy_cost_per_second * delta
+	#if direction != 0:
+		#energy -= Global.mods.horizontal_movement_energy_cost_per_second * delta
 	
 	handle_horizontal_velocity(direction, delta)
 
@@ -34,12 +36,11 @@ func _physics_process(delta: float) -> void:
 	if sideways_test_collision:
 		if velocity.y < 0:
 			velocity.y = 0
-		if sideways_test_collision.get_collider().is_in_group("Mineable"):
-			var rid = sideways_test_collision.get_collider_rid()
-			if rid:
-				var damage = get_damage(old_velocity.x)
-				Global.main.cave.damage_tile_by_RID(rid, damage)
-				energy -= Global.mods.bounce_energy_cost
+		if sideways_test_collision.get_collider() is Block:
+			var block : Block =  sideways_test_collision.get_collider()
+			var damage = get_damage(old_velocity.x)
+			block.take_damage(damage)
+			energy -= block.block_data.energy_per_hit_cost
 				
 		velocity.x *= -1
 		
@@ -48,17 +49,16 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jet_pack"):
 		velocity.y = Global.mods.jet_pack_speed
-		energy -= Global.mods.jet_pack_cost_per_second * delta
+		#energy -= Global.mods.jet_pack_cost_per_second * delta
 	else:
 		var test_collision : KinematicCollision2D = move_and_collide(Vector2(0, velocity.y) * delta, true)	
 
 		if test_collision:
-			if test_collision.get_collider().is_in_group("Mineable"):
-				var rid = test_collision.get_collider_rid()
-				if rid:
-					var damage = get_damage(old_velocity.y)
-					Global.main.cave.damage_tile_by_RID(rid, damage)
-					energy -= Global.mods.bounce_energy_cost
+			if test_collision.get_collider() is Block:
+				var block : Block =  test_collision.get_collider()
+				var damage = get_damage(old_velocity.y)
+				block.take_damage(damage)
+				energy -= block.block_data.energy_per_hit_cost
 				
 			create_x_impact_tween()
 			velocity.y = Global.mods.bounce_speed
