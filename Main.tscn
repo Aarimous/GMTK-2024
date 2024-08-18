@@ -1,10 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://0ai51ujb8wc3"]
+[gd_scene load_steps=9 format=3 uid="uid://v5k2a01o8wtd"]
 
-[ext_resource type="Texture2D" uid="uid://c5xxuf13j1ysx" path="res://icon.svg" id="1_3g6ow"]
+[ext_resource type="Script" path="res://Main.gd" id="1_p64ta"]
+[ext_resource type="PackedScene" uid="uid://etqcwr4mjn3o" path="res://Player.tscn" id="3_lwi5s"]
+[ext_resource type="Script" path="res://Camera Pivot.gd" id="4_cceof"]
+[ext_resource type="PackedScene" uid="uid://b1frdap1hlgjr" path="res://Cave.tscn" id="4_kgewa"]
+[ext_resource type="PackedScene" uid="uid://bs6ake32782hc" path="res://Money.tscn" id="5_84nbp"]
+[ext_resource type="Theme" uid="uid://riwr042vts6v" path="res://Theme.tres" id="6_resgg"]
+[ext_resource type="PackedScene" uid="uid://byydjde0hluqq" path="res://EnergyUI.tscn" id="7_skafl"]
+[ext_resource type="PackedScene" uid="uid://c7gu8opopilxe" path="res://Upgrades.tscn" id="8_7n8cr"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_p64ta")
+cave_packed = ExtResource("4_kgewa")
+player_pakced = ExtResource("3_lwi5s")
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(90, 80)
-texture = ExtResource("1_3g6ow")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 200.0
+grow_vertical = 0
+theme = ExtResource("6_resgg")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Money" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_84nbp")]
+layout_mode = 2
+
+[node name="Energy" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_skafl")]
+layout_mode = 2
+
+[node name="Camera Pivot" type="Marker2D" parent="."]
+position = Vector2(64, 0)
+script = ExtResource("4_cceof")
+
+[node name="Camera2D" type="Camera2D" parent="Camera Pivot"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.33
+drag_top_margin = 0.8
+drag_right_margin = 0.33
+drag_bottom_margin = 0.0
+
+[node name="Upgrades" parent="." instance=ExtResource("8_7n8cr")]
+process_mode = 3
+visible = false

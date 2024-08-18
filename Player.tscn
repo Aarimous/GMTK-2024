@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://etqcwr4mjn3o"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_flvuw"]
+[ext_resource type="Texture2D" uid="uid://umeuh565sxgp" path="res://Art/Robot/Outside_5.png" id="2_d0kap"]
+[ext_resource type="Texture2D" uid="uid://ds8x5bffb3arf" path="res://Art/Robot/Outside_4.png" id="3_p5rlg"]
+[ext_resource type="Texture2D" uid="uid://bfwfva6kj1k7u" path="res://Art/Robot/Inside_4.png" id="4_inmjs"]
+[ext_resource type="Texture2D" uid="uid://58igt7pmxbjp" path="res://Art/Robot/Inside_3.png" id="5_ffm0w"]
+[ext_resource type="Texture2D" uid="uid://ctxce0nx21xaj" path="res://Art/Robot/Left Eye.png" id="6_d4m12"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1sgmm"]
+radius = 50.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_flvuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1sgmm")
+
+[node name="Art Pivot" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+
+[node name="Art" type="Node2D" parent="Art Pivot"]
+unique_name_in_owner = true
+
+[node name="Outside" type="Sprite2D" parent="Art Pivot/Art"]
+self_modulate = Color(0.384314, 0.333333, 0.396078, 1)
+texture = ExtResource("2_d0kap")
+
+[node name="Outside Outline" type="Sprite2D" parent="Art Pivot/Art"]
+self_modulate = Color(0.780392, 0.862745, 0.815686, 1)
+texture = ExtResource("3_p5rlg")
+
+[node name="Inside" type="Sprite2D" parent="Art Pivot/Art"]
+self_modulate = Color(0.384314, 0.333333, 0.396078, 1)
+texture = ExtResource("4_inmjs")
+
+[node name="Inside Outline" type="Sprite2D" parent="Art Pivot/Art"]
+self_modulate = Color(0.780392, 0.862745, 0.815686, 1)
+texture = ExtResource("5_ffm0w")
+
+[node name="Eye Pivot" type="Node2D" parent="Art Pivot/Art"]
+modulate = Color(0.984314, 0.72549, 0.329412, 1)
+
+[node name="Left Eye" type="Sprite2D" parent="Art Pivot/Art/Eye Pivot"]
+position = Vector2(-25, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_d4m12")
+
+[node name="Right Eye" type="Sprite2D" parent="Art Pivot/Art/Eye Pivot"]
+position = Vector2(25, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_d4m12")

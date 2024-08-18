@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7gu8opopilxe"]
+
+[ext_resource type="PackedScene" uid="uid://bgcx564jp4kd0" path="res://Upgrade.tscn" id="1_oxyos"]
+[ext_resource type="Script" path="res://Upgrades.gd" id="1_x1e7v"]
+[ext_resource type="Theme" uid="uid://riwr042vts6v" path="res://Theme.tres" id="3_0uv2f"]
+[ext_resource type="PackedScene" uid="uid://bs6ake32782hc" path="res://Money.tscn" id="3_atk1l"]
+
+[node name="Upgrade Screen" type="CanvasLayer"]
+script = ExtResource("1_x1e7v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.372549, 0.333333, 0.415686, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme = ExtResource("3_0uv2f")
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0uv2f")
+theme_override_font_sizes/font_size = 120
+text = "UPGRADES"
+
+[node name="Money" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_atk1l")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -59.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Start New Run" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("3_0uv2f")
+theme_override_font_sizes/font_size = 42
+text = "START NEW RUN"
+
+[node name="Upgrades" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Damage Base" parent="Upgrades" instance=ExtResource("1_oxyos")]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 629.0
+offset_right = 1060.0
+offset_bottom = 773.0
+
+[node name="Energy Base" parent="Upgrades" instance=ExtResource("1_oxyos")]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 362.0
+offset_right = 1375.0
+offset_bottom = 506.0
+type = 1
+
+[node name="Movement Speed Base" parent="Upgrades" instance=ExtResource("1_oxyos")]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 361.0
+offset_right = 869.0
+offset_bottom = 505.0
+type = 2
+
+[connection signal="button_up" from="MarginContainer2/Start New Run" to="." method="_on_start_new_run_button_up"]

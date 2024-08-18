@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://riwr042vts6v"]
+
+[ext_resource type="FontFile" uid="uid://bowb5dwlyd8xe" path="res://Art/FredokaOne-Regular.ttf" id="1_gbdfh"]
+
+[resource]
+default_font = ExtResource("1_gbdfh")
+default_font_size = 32

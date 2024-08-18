@@ -1,0 +1,152 @@
+{
+  "0": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 0,
+    "MONEY_COST": 1,
+    "INCREASE_VALUE": 1
+  },
+  "1": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 1,
+    "MONEY_COST": 2,
+    "INCREASE_VALUE": 2
+  },
+  "2": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 2,
+    "MONEY_COST": 4,
+    "INCREASE_VALUE": 3
+  },
+  "3": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 3,
+    "MONEY_COST": 8,
+    "INCREASE_VALUE": 5
+  },
+  "4": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 4,
+    "MONEY_COST": 16,
+    "INCREASE_VALUE": 8
+  },
+  "5": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 5,
+    "MONEY_COST": 32,
+    "INCREASE_VALUE": 13
+  },
+  "6": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 6,
+    "MONEY_COST": 64,
+    "INCREASE_VALUE": 21
+  },
+  "7": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 7,
+    "MONEY_COST": 128,
+    "INCREASE_VALUE": 34
+  },
+  "8": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 8,
+    "MONEY_COST": 256,
+    "INCREASE_VALUE": 55
+  },
+  "9": {
+    "UPGRADE_TYPE": "DAMAGE_BASE",
+    "TIER": 9,
+    "MONEY_COST": 512,
+    "INCREASE_VALUE": 89
+  },
+  "10": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 0,
+    "MONEY_COST": 2,
+    "INCREASE_VALUE": 5
+  },
+  "11": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 1,
+    "MONEY_COST": 6,
+    "INCREASE_VALUE": 15
+  },
+  "12": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 2,
+    "MONEY_COST": 18,
+    "INCREASE_VALUE": 20
+  },
+  "13": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 3,
+    "MONEY_COST": 54,
+    "INCREASE_VALUE": 35
+  },
+  "14": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 4,
+    "MONEY_COST": 162,
+    "INCREASE_VALUE": 55
+  },
+  "15": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 5,
+    "MONEY_COST": 486,
+    "INCREASE_VALUE": 90
+  },
+  "16": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 6,
+    "MONEY_COST": 1458,
+    "INCREASE_VALUE": 145
+  },
+  "17": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 7,
+    "MONEY_COST": 4374,
+    "INCREASE_VALUE": 235
+  },
+  "18": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 8,
+    "MONEY_COST": 13122,
+    "INCREASE_VALUE": 380
+  },
+  "19": {
+    "UPGRADE_TYPE": "ENERGY_BASE",
+    "TIER": 9,
+    "MONEY_COST": 39366,
+    "INCREASE_VALUE": 615
+  },
+  "20": {
+    "UPGRADE_TYPE": "MOVEMENT_SPEED_BASE",
+    "TIER": 0,
+    "MONEY_COST": 10,
+    "INCREASE_VALUE": 100
+  },
+  "21": {
+    "UPGRADE_TYPE": "MOVEMENT_SPEED_BASE",
+    "TIER": 1,
+    "MONEY_COST": 40,
+    "INCREASE_VALUE": 200
+  },
+  "22": {
+    "UPGRADE_TYPE": "MOVEMENT_SPEED_BASE",
+    "TIER": 2,
+    "MONEY_COST": 160,
+    "INCREASE_VALUE": 300
+  },
+  "23": {
+    "UPGRADE_TYPE": "MOVEMENT_SPEED_BASE",
+    "TIER": 3,
+    "MONEY_COST": 640,
+    "INCREASE_VALUE": 500
+  },
+  "24": {
+    "UPGRADE_TYPE": "MOVEMENT_SPEED_BASE",
+    "TIER": 4,
+    "MONEY_COST": 2560,
+    "INCREASE_VALUE": 800
+  }
+}
