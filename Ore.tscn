@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6v33oiduwmcm"]
+
+[ext_resource type="Script" path="res://Ore.gd" id="1_v037b"]
+[ext_resource type="Texture2D" uid="uid://bipi8m7f7uwee" path="res://Art/Nice Bit Here@2x.png" id="2_1bunw"]
+
+[node name="Ore" type="RigidBody2D"]
+disable_mode = 2
+collision_layer = 32
+collision_mask = 38
+can_sleep = false
+script = ExtResource("1_v037b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1bunw")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(9, -19, 20, 3, 3, 20, -19, 10, -15, -15)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

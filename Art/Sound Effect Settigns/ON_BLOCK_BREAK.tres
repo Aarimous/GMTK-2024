@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://cpw5g3kg6xapo"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_jfobr"]
+[ext_resource type="AudioStream" uid="uid://6p0xr82u8pmc" path="res://Audio/zapsplat_impacts_rock_chunk_piece_throw_drop_into_plastic_container_short.mp3" id="2_bermg"]
+
+[resource]
+script = ExtResource("1_jfobr")
+limit = 3
+type = 2
+sound_effect = ExtResource("2_bermg")
+volume = -5
+pitch_scale = 1.0
+pitch_randomness = 0.1

@@ -7,6 +7,8 @@ var mods : Mods
 var rng : RandomNumberGenerator
 var hex_util : HexUtil
 
+enum TEXT_TYPES {MONEY, DAMAGE}
+
 
 var velocity_normilization_factor = 100
 
@@ -26,19 +28,33 @@ enum UPGRADE_TYPES {
 	MONEY_ON_HIT_SCALE,
 	MONEY_ON_BREAK_SCALE,
 	JETPACK_SPEED,
-	VELOCITY_TO_DAMAGE_SCALE
+	VELOCITY_TO_DAMAGE_SCALE,
+	DOWN_THRUST_SPEED,
+	DAMAGE_SCALE,
+	HEALTH_SCALE,
+	ORE_DROPPED,
+	ORE_MONEY_BASE,
+	ORE_MONEY_SCALE,
+	MONEY_SCALE
 	}
 	
 var percent_based_upgrades = [
 	UPGRADE_TYPES.MONEY_ON_HIT_SCALE,
 	UPGRADE_TYPES.MONEY_ON_BREAK_SCALE,
-	UPGRADE_TYPES.VELOCITY_TO_DAMAGE_SCALE
+	UPGRADE_TYPES.VELOCITY_TO_DAMAGE_SCALE,
+	UPGRADE_TYPES.DAMAGE_SCALE,
+	UPGRADE_TYPES.HEALTH_SCALE,
+	UPGRADE_TYPES.ORE_MONEY_SCALE,
+	UPGRADE_TYPES.MONEY_SCALE
 ]
 
+var money_mods = [
+	UPGRADE_TYPES.ORE_MONEY_BASE
+]
 
 var speed_based_upgrades = [
 	UPGRADE_TYPES.MOVEMENT_SPEED_BASE,
-	UPGRADE_TYPES.JETPACK_SPEED
+	UPGRADE_TYPES.DOWN_THRUST_SPEED
 ]
 enum BLOCK_TYPES {GRASS_DIRT, DIRT, GRAVEL_DIRT, GRAVEL_STONE, STONE, DEEP_STONE, OBSIDIAN, RAINBOW}
 
@@ -64,3 +80,6 @@ func load_json_data_from_path(path : String):
 		push_error("load_json_data_from_path failed to parse file data to JSON for ", path)
 	
 	return json_data
+
+func get_node2d_viewport_position(node2d : Node2D):
+	return node2d.global_position + node2d.get_canvas_transform().origin

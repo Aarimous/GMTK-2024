@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://bgpmnox1pm7a1"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_im2m0"]
+[ext_resource type="AudioStream" uid="uid://ci8240m5gbl3" path="res://Audio/robot_land_metal_tray.mp3" id="2_yhpgk"]
+
+[resource]
+script = ExtResource("1_im2m0")
+limit = 5
+type = 1
+sound_effect = ExtResource("2_yhpgk")
+volume = -5
+pitch_scale = 1.0
+pitch_randomness = 0.1

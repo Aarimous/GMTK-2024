@@ -87,12 +87,13 @@ vertical_alignment = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-offset_left = 10.0
-offset_top = 51.0
-offset_right = 205.0
-offset_bottom = 79.0
+offset_left = -10.0
+offset_top = 99.0
+offset_right = 185.0
+offset_bottom = 158.0
 theme_override_font_sizes/font_size = 22
-text = "FULLY UPGRADED"
+text = "FULLY 
+UPGRADED"
 horizontal_alignment = 1
 
 [node name="Locked" type="Label" parent="."]

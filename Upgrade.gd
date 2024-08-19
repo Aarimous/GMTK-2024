@@ -85,15 +85,15 @@ func update_ui():
 	var upgrade_tier : UpgradeTier = tiers[current_tier]
 	
 	if type in Global.percent_based_upgrades:
-		%"Next Upgrade".text = str("+", upgrade_tier.increase_amount * 100.0, "%")
+		%"Next Upgrade".text = str("+", snappedf(upgrade_tier.increase_amount * 100.0, 0.01), "%")
 	elif type in Global.speed_based_upgrades:
-		%"Next Upgrade".text = str("+", upgrade_tier.increase_amount / Global.velocity_normilization_factor, " m/s")
+		%"Next Upgrade".text = str("+", snappedf(upgrade_tier.increase_amount / Global.velocity_normilization_factor, 0.1), " m/s")
 	else:
-		%"Next Upgrade".text = str("+", upgrade_tier.increase_amount)
+		%"Next Upgrade".text = str("+", snappedf(upgrade_tier.increase_amount, 0.01))
 	
 	
 	
 	%Tiers.text = str(current_tier + 1, "/", tiers.size())
-	%"Cost Text".text = str("$",upgrade_tier.money_cost)
+	%"Cost Text".text = str("$", snappedf(upgrade_tier.money_cost, 0.01))
 	
 	

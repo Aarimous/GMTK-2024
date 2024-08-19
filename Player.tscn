@@ -1,18 +1,78 @@
-[gd_scene load_steps=8 format=3 uid="uid://etqcwr4mjn3o"]
+[gd_scene load_steps=14 format=3 uid="uid://etqcwr4mjn3o"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_flvuw"]
 [ext_resource type="Texture2D" uid="uid://umeuh565sxgp" path="res://Art/Robot/Outside_5.png" id="2_d0kap"]
 [ext_resource type="Texture2D" uid="uid://ds8x5bffb3arf" path="res://Art/Robot/Outside_4.png" id="3_p5rlg"]
 [ext_resource type="Texture2D" uid="uid://bfwfva6kj1k7u" path="res://Art/Robot/Inside_4.png" id="4_inmjs"]
 [ext_resource type="Texture2D" uid="uid://58igt7pmxbjp" path="res://Art/Robot/Inside_3.png" id="5_ffm0w"]
+[ext_resource type="Shader" path="res://EyeShaders.gdshader" id="6_24gx8"]
 [ext_resource type="Texture2D" uid="uid://ctxce0nx21xaj" path="res://Art/Robot/Left Eye.png" id="6_d4m12"]
 
+[sub_resource type="Curve" id="Curve_g3dmj"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_vvsmd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.392802), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7d7e4"]
+offsets = PackedFloat32Array(0, 0.664032, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sgmm"]
-radius = 62.2013
+radius = 48.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6r2v4"]
+shader = ExtResource("6_24gx8")
+shader_parameter/crop_left = 0.0
+shader_parameter/crop_right = 0.0
+shader_parameter/crop_top = 0.0
+shader_parameter/crop_bottom = 0.0
+shader_parameter/color_uni = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hetvu"]
+radius = 73.0069
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_flvuw")
+
+[node name="Thurst Parts" type="CPUParticles2D" parent="."]
+modulate = Color(0.984314, 0.419608, 0.113725, 1)
+amount = 32
+lifetime = 1.5
+lifetime_randomness = 0.5
+texture = ExtResource("4_inmjs")
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+damping_curve = SubResource("Curve_g3dmj")
+scale_amount_min = 0.1
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_vvsmd")
+color_ramp = SubResource("Gradient_7d7e4")
+
+[node name="Particle Pivot" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particle Pivot"]
+unique_name_in_owner = true
+modulate = Color(0.984314, 0.419608, 0.113725, 1)
+position = Vector2(39, 0)
+texture = ExtResource("4_inmjs")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 32)
+spread = 0.0
+gravity = Vector2(0, 0)
+damping_curve = SubResource("Curve_g3dmj")
+scale_amount_min = 0.1
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_vvsmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1sgmm")
@@ -25,30 +85,42 @@ scale = Vector2(0.5, 0.5)
 unique_name_in_owner = true
 
 [node name="Outside" type="Sprite2D" parent="Art Pivot/Art"]
-self_modulate = Color(0.384314, 0.333333, 0.396078, 1)
+self_modulate = Color(0.282353, 0.290196, 0.466667, 1)
 texture = ExtResource("2_d0kap")
 
 [node name="Outside Outline" type="Sprite2D" parent="Art Pivot/Art"]
-self_modulate = Color(0.780392, 0.862745, 0.815686, 1)
+unique_name_in_owner = true
 texture = ExtResource("3_p5rlg")
 
 [node name="Inside" type="Sprite2D" parent="Art Pivot/Art"]
-self_modulate = Color(0.384314, 0.333333, 0.396078, 1)
+self_modulate = Color(0.301961, 0.396078, 0.705882, 1)
 texture = ExtResource("4_inmjs")
 
 [node name="Inside Outline" type="Sprite2D" parent="Art Pivot/Art"]
-self_modulate = Color(0.780392, 0.862745, 0.815686, 1)
+visible = false
 texture = ExtResource("5_ffm0w")
 
 [node name="Eye Pivot" type="Node2D" parent="Art Pivot/Art"]
-modulate = Color(0.984314, 0.72549, 0.329412, 1)
+unique_name_in_owner = true
+modulate = Color(0.976471, 0.760784, 0.168627, 1)
+material = SubResource("ShaderMaterial_6r2v4")
 
 [node name="Left Eye" type="Sprite2D" parent="Art Pivot/Art/Eye Pivot"]
+use_parent_material = true
 position = Vector2(-25, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_d4m12")
 
 [node name="Right Eye" type="Sprite2D" parent="Art Pivot/Art/Eye Pivot"]
+use_parent_material = true
 position = Vector2(25, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_d4m12")
+
+[node name="Loot Range" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot Range"]
+shape = SubResource("CircleShape2D_hetvu")
+
+[connection signal="body_entered" from="Loot Range" to="." method="_on_loot_range_body_entered"]

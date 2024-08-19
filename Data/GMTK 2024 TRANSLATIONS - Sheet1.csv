@@ -1,8 +1,15 @@
 key,en
 DAMAGE_BASE,Damage
-ENERGY_BASE,Energy
+ENERGY_BASE,Health
 MOVEMENT_SPEED_BASE,Horizontal Speed
-MONEY_ON_HIT_SCALE,$ On Hit
-MONEY_ON_BREAK_SCALE,$ On Break
+MONEY_ON_HIT_SCALE,Money On Hit Scale
+MONEY_ON_BREAK_SCALE,Money On Break Scale
 JETPACK_SPEED,Jetpack Speed
 VELOCITY_TO_DAMAGE_SCALE,Velocity to Damage
+DOWN_THRUST_SPEED,Downward Thrust Speed
+DAMAGE_SCALE,Damage Scale
+HEALTH_SCALE,Health Scale
+ORE_DROPPED,Diamonds from Ore
+ORE_MONEY_BASE,Diamond Money
+ORE_MONEY_SCALE,Diamond Money Scale
+MONEY_SCALE,Money Scale
