@@ -50,7 +50,8 @@ func _on_upgrade_tier_purchased(cell):
 
 
 func _ready():
-	on_run_ended()
+	$Player.set_physics_process(true)
+	#on_run_ended()
 	#for upgrade in %Upgrades.get_children():
 		#if upgrade is Upgrade:
 			#upgrade_dict[upgrade.type] = upgrade
@@ -96,6 +97,7 @@ func load_upgrades_data():
 			
 
 func on_run_ended():
+	%AudioStreamPlayer.play()
 	$Player.set_physics_process(true)
 	$Player.position = %"Player Position".position
 	
@@ -125,4 +127,10 @@ func parse_upgrade_teir_from_json(id, json_data : Dictionary):
 
 
 func _on_play_button_up() -> void:
+	#%AudioStreamPlayer2.play() 
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.START_RUN)
 	Global.main.start_run()
+
+
+func _on_play_mouse_entered() -> void:
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.BUY_HOVER)

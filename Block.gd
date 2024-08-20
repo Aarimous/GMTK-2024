@@ -71,16 +71,20 @@ func take_damage(amount, pos):
 	#Global.main.create_text(str(int(amount)), global_position, Global.TEXT_TYPES.DAMAGE)
 
 	if health > 0:
-		AudioManager.create_2d_audio_at_location(pos, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_BLOCK_HIT)
+		#Global.main.camera_2d.shake(.2, 70, 5)
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ON_BLOCK_HIT)
 		var money_gained = ( block_data.money_per_hit * (1 + Global.mods.money_per_hit_scale) * (1 + Global.mods.money_scale)) 
 		#if has_ore :
 			#money_gained *= 1 + Global.mods.ore_money_scale
 		Global.money += money_gained
 		Global.main.create_text(str("$", snappedf(money_gained, 0.01)), Global.get_node2d_viewport_position(self) + to_local(pos), Global.TEXT_TYPES.MONEY)
 	else:
-		AudioManager.create_2d_audio_at_location(pos, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_BLOCK_BREAK)
+		
+		Global.main.camera_2d.shake(.2, 100, 5)
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ON_BLOCK_BREAK)
 		var money_gained = ( block_data.money_on_break * (1 + Global.mods.money_per_break_scale) * (1 + Global.mods.money_scale) )
-		#if has_ore :
+		if has_ore :
+			AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.GLASS_BREAK)
 			#money_gained *= 1 + Global.mods.ore_money_scale
 		Global.money += money_gained
 		Global.main.create_text(str("$", snappedf(money_gained, 0.01)), Global.get_node2d_viewport_position(self) + to_local(pos), Global.TEXT_TYPES.MONEY)

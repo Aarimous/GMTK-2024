@@ -64,7 +64,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	hex_util = HexUtil.new(Vector2(96, 96))
+	hex_util = HexUtil.new(Vector2(120, 120))
 
 
 func load_json_data_from_path(path : String):

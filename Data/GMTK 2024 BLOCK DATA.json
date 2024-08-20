@@ -1,0 +1,60 @@
+{
+  "Sheet1": {
+    "0": {
+      "BLOCK_TYPE": "GRASS_DIRT",
+      "HEALTH": 3,
+      "LAYER_SIZE": 1,
+      "ENERGY_PER_HIT_COST": 0.5,
+      "MONEY_PER_HIT": 0.01,
+      "MONEY_ON_BREAK": 0.5
+    },
+    "1": {
+      "BLOCK_TYPE": "DIRT",
+      "HEALTH": 8.129999999999999,
+      "LAYER_SIZE": 2,
+      "ENERGY_PER_HIT_COST": 1.57,
+      "MONEY_PER_HIT": 0.5,
+      "MONEY_ON_BREAK": 1.23
+    },
+    "2": {
+      "BLOCK_TYPE": "GRAVEL_DIRT",
+      "HEALTH": 21.137999999999998,
+      "LAYER_SIZE": 3,
+      "ENERGY_PER_HIT_COST": 4.9298,
+      "MONEY_PER_HIT": 1.23,
+      "MONEY_ON_BREAK": 5.21
+    },
+    "3": {
+      "BLOCK_TYPE": "GRAVEL_STONE",
+      "HEALTH": 86.66579999999999,
+      "LAYER_SIZE": 4,
+      "ENERGY_PER_HIT_COST": 25.339171999999998,
+      "MONEY_PER_HIT": 5.21,
+      "MONEY_ON_BREAK": 30.12
+    },
+    "4": {
+      "BLOCK_TYPE": "STONE",
+      "HEALTH": 537.32796,
+      "LAYER_SIZE": 5,
+      "ENERGY_PER_HIT_COST": 130.24334407999999,
+      "MONEY_PER_HIT": 30.12,
+      "MONEY_ON_BREAK": 72.1
+    },
+    "5": {
+      "BLOCK_TYPE": "DEEP_STONE",
+      "HEALTH": 3868.7613119999996,
+      "LAYER_SIZE": 6,
+      "ENERGY_PER_HIT_COST": 669.4507885711998,
+      "MONEY_PER_HIT": 72.1,
+      "MONEY_ON_BREAK": 102
+    },
+    "6": {
+      "BLOCK_TYPE": "OBSIDIAN",
+      "HEALTH": 31723.842758399995,
+      "LAYER_SIZE": 7,
+      "ENERGY_PER_HIT_COST": 3440.977053255967,
+      "MONEY_PER_HIT": 102,
+      "MONEY_ON_BREAK": 472
+    }
+  }
+}

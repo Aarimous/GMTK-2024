@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://d4qv02ksedf2"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_5gara"]
+[ext_resource type="AudioStream" uid="uid://cad4y8305hx0l" path="res://Audio/zapsplat_multimedia_game_sound_bright_warm_positive_short_tone_001_40553.mp3" id="2_ny1ju"]
+
+[resource]
+script = ExtResource("1_5gara")
+limit = 3
+type = 4
+sound_effect = ExtResource("2_ny1ju")
+volume = -20
+pitch_scale = 1.0
+pitch_randomness = 0.1

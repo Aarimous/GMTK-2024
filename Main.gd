@@ -12,6 +12,9 @@ var player : Player
 @onready var ores: Node2D = %Ores
 
 
+var is_run_active = false
+@onready var camera_2d: Camera = %Camera2D
+
 func _ready():
 	Global.main = self
 	start_run()
@@ -20,7 +23,7 @@ func _ready():
 func start_run():
 	
 	cave.reset_cave()
-	
+	is_run_active = true
 	player = player_pakced.instantiate()
 	player.global_position = Vector2(64, -384)
 	add_child(player)
@@ -34,7 +37,7 @@ func end_run():
 	
 	$"Camera Pivot".player = null
 	player.queue_free()
-	
+	is_run_active = false
 	upgrades.on_run_ended()
 	upgrades.show()
 	
@@ -54,3 +57,8 @@ func create_text(text , pos, type : Global.TEXT_TYPES):
 		call_deferred("add_child", new_floating_text) 
 	
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+	%"On Winning".play()

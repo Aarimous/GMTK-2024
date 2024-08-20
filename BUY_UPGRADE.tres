@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://bn2trwrkrbxyq"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_ut34y"]
+[ext_resource type="AudioStream" uid="uid://dl3lpsx654cjy" path="res://Audio/zapsplat_multimedia_button_click_004_78081 (1).mp3" id="2_os220"]
+
+[resource]
+script = ExtResource("1_ut34y")
+limit = 5
+type = 6
+sound_effect = ExtResource("2_os220")
+volume = -10
+pitch_scale = 1.0
+pitch_randomness = 0.0

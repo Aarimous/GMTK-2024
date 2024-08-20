@@ -9,5 +9,5 @@ limit = 5
 type = 0
 sound_effect = ExtResource("2_7wese")
 volume = -10
-pitch_scale = 1.1
-pitch_randomness = 0.2
+pitch_scale = 0.9
+pitch_randomness = 0.1

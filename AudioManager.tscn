@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1hadqsnlwk45"]
+[gd_scene load_steps=13 format=3 uid="uid://d1hadqsnlwk45"]
 
 [ext_resource type="Script" path="res://AudioManager.gd" id="1_dqdx1"]
 [ext_resource type="Script" path="res://SoundEffectSettings.gd" id="2_6omwn"]
 [ext_resource type="Resource" uid="uid://ceg24tupfndo" path="res://Art/Sound Effect Settigns/ON_BLOCK_HIT.tres" id="3_ocer3"]
 [ext_resource type="Resource" uid="uid://bgpmnox1pm7a1" path="res://Art/Sound Effect Settigns/ON_WALL_HIT.tres" id="4_2dhq8"]
 [ext_resource type="Resource" uid="uid://cpw5g3kg6xapo" path="res://Art/Sound Effect Settigns/ON_BLOCK_BREAK.tres" id="5_v10if"]
+[ext_resource type="Resource" uid="uid://tkpbo1j3rfm8" path="res://ORE_PICK_UP.tres" id="6_jnmw5"]
+[ext_resource type="Resource" uid="uid://ik4r1chmhugs" path="res://MONEY_1.tres" id="7_8ve35"]
+[ext_resource type="Resource" uid="uid://cr6u4xp3rilib" path="res://MONEY_SWIP.tres" id="8_3so5b"]
+[ext_resource type="Resource" uid="uid://bn2trwrkrbxyq" path="res://BUY_UPGRADE.tres" id="9_ws4bc"]
+[ext_resource type="Resource" uid="uid://bbqsuaxdkt87m" path="res://START_RIUN.tres" id="10_mu62y"]
+[ext_resource type="Resource" uid="uid://ckgx1nh5hxq7r" path="res://BUY_HOVER.tres" id="11_lbv5y"]
+[ext_resource type="Resource" uid="uid://cuhrqvly2ckq" path="res://GLASS_BREAK.tres" id="12_b442n"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_dqdx1")
-sound_effect_settings = Array[ExtResource("2_6omwn")]([ExtResource("3_ocer3"), ExtResource("4_2dhq8"), ExtResource("5_v10if")])
+sound_effect_settings = Array[ExtResource("2_6omwn")]([ExtResource("3_ocer3"), ExtResource("4_2dhq8"), ExtResource("5_v10if"), ExtResource("6_jnmw5"), ExtResource("7_8ve35"), ExtResource("8_3so5b"), ExtResource("9_ws4bc"), ExtResource("10_mu62y"), ExtResource("11_lbv5y"), ExtResource("12_b442n")])

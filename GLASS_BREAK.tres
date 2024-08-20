@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://cuhrqvly2ckq"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_hfw6v"]
+[ext_resource type="AudioStream" uid="uid://dqjhiyropvfqx" path="res://Audio/zapsplat_multimedia_game_sound_glass_or_gem_hit_smash_break_002_90571.mp3" id="2_86aff"]
+
+[resource]
+script = ExtResource("1_hfw6v")
+limit = 2
+type = 9
+sound_effect = ExtResource("2_86aff")
+volume = -10
+pitch_scale = 0.8
+pitch_randomness = 0.0

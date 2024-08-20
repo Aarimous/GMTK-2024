@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c7gu8opopilxe"]
+[gd_scene load_steps=16 format=4 uid="uid://c7gu8opopilxe"]
 
 [ext_resource type="PackedScene" uid="uid://bgcx564jp4kd0" path="res://Upgrade.tscn" id="1_oxyos"]
 [ext_resource type="Script" path="res://Upgrades.gd" id="1_x1e7v"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c6e3x4vca6usl" path="res://Art/brick_grey.png" id="5_srnkw"]
 [ext_resource type="PackedScene" uid="uid://etqcwr4mjn3o" path="res://Player.tscn" id="6_3ruud"]
 [ext_resource type="PackedScene" uid="uid://bqs0u1hw7bmvk" path="res://ButtonCustom.tscn" id="8_2bpes"]
+[ext_resource type="PackedScene" uid="uid://d2kwtta1e2s4m" path="res://controls.tscn" id="9_s4rti"]
+[ext_resource type="AudioStream" uid="uid://cpl7frrqve4yr" path="res://Audio/zapsplat_multimedia_game_sound_bell_digital_synth_bright_harsh_ascend_level_up_001_40472.mp3" id="10_fsml6"]
+[ext_resource type="AudioStream" uid="uid://ck1o4ulj56stk" path="res://Audio/zapsplat_multimedia_game_sound_bright_warm_positive_short_tone_002_40554.mp3" id="11_reqci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_byfpu"]
 texture = ExtResource("5_srnkw")
@@ -126,4 +129,17 @@ text = "PLAY MORE"
 unique_name_in_owner = true
 position = Vector2(960, -64)
 
+[node name="Controls" parent="." instance=ExtResource("9_s4rti")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_fsml6")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_reqci")
+volume_db = -10.0
+
 [connection signal="button_up" from="MarginContainer2/Play" to="." method="_on_play_button_up"]
+[connection signal="mouse_entered" from="MarginContainer2/Play" to="." method="_on_play_mouse_entered"]

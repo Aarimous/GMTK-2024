@@ -47,7 +47,7 @@ func reset_cave():
 		block.reset()
  
 		if block.cell.y != 0:
-			if abs(ore_noise.get_noise_2dv(block.cell)) >= .46:
+			if abs(ore_noise.get_noise_2dv(block.cell)) >= .40:
 				block.has_ore = true
 			else:
 				block.has_ore = false

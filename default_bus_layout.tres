@@ -9,5 +9,6 @@ dry = 0.5
 wet = 0.25
 
 [resource]
+bus/0/volume_db = -1.51925
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_px8y1")
 bus/0/effect/0/enabled = true

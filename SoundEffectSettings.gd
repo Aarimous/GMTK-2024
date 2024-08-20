@@ -3,7 +3,15 @@ class_name SoundEffectSettings
 enum SOUND_EFFECT_TYPE{
 	ON_BLOCK_HIT,
 	ON_WALL_HIT,
-	ON_BLOCK_BREAK
+	ON_BLOCK_BREAK,
+	ORE_PICK_UP,
+	MONEY_1,
+	MONEY_SWIPE,
+	BUY_UPGRADE,
+	START_RUN,
+	BUY_HOVER,
+	GLASS_BREAK
+
 }
 
 @export_range(0, 10) var limit : int = 5

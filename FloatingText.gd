@@ -42,8 +42,15 @@ func handle_money():
 	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position:y", position.y - 16, duration)
 	tween.parallel().tween_property(self, "scale", Vector2.ONE, duration/2).from(Vector2(.5,.5))
+	tween.chain().tween_callback(func(): 
+		if Global.main.is_run_active:
+			AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.MONEY_SWIPE)
+		)
 	tween.tween_property(self, "position", target_post, duration/2)
+	
+	
 	tween.tween_interval(duration/2)
+	tween.chain().tween_callback(play_random_money_sound)
 	tween.tween_property(self, "position", target_post2, duration/3)
 	tween.parallel().tween_property(self, "scale", Vector2(.5,.5), duration/3)
 	#tween.parallel().tween_property(self, "modulate:a", 0, duration/2)
@@ -61,3 +68,17 @@ func handle_damage():
 	#tween.tween_property(self, "position:y", position.y + -128 + -16, duration)
 	
 	tween.tween_callback(queue_free)
+
+
+func play_random_money_sound():
+	
+	var sound_effects = [
+		SoundEffectSettings.SOUND_EFFECT_TYPE.MONEY_1,
+		#SoundEffectSettings.SOUND_EFFECT_TYPE.MONEY_1,
+		#SoundEffectSettings.SOUND_EFFECT_TYPE.MONEY_2,
+		#SoundEffectSettings.SOUND_EFFECT_TYPE.MONEY_3,
+	]
+	
+	if Global.main.is_run_active:
+			AudioManager.create_audio(sound_effects.pick_random())
+	

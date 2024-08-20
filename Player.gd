@@ -61,7 +61,11 @@ func _physics_process(delta: float) -> void:
 			var damage = get_damage(old_velocity.x)
 			has_delt_damage = true
 			block.take_damage(damage, sideways_test_collision.get_position())
-			energy -= block.block_data.energy_per_hit_cost
+			
+			if is_momementum_active:
+				energy -= block.block_data.energy_per_hit_cost * 5.0
+			else:
+				energy -= block.block_data.energy_per_hit_cost
 		elif collider and has_played_wall_audio == false:
 			AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ON_WALL_HIT)
 			has_played_wall_audio = true
@@ -112,7 +116,7 @@ func _physics_process(delta: float) -> void:
 				block.take_damage(damage, test_collision.get_position())
 				
 				if is_momementum_active:
-					energy -= block.block_data.energy_per_hit_cost * 2.0
+					energy -= block.block_data.energy_per_hit_cost * 5.0
 				else:
 					energy -= block.block_data.energy_per_hit_cost
 				

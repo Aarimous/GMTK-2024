@@ -9,5 +9,5 @@ limit = 5
 type = 1
 sound_effect = ExtResource("2_yhpgk")
 volume = -5
-pitch_scale = 1.0
+pitch_scale = 0.9
 pitch_randomness = 0.1

@@ -8,6 +8,6 @@ script = ExtResource("1_jfobr")
 limit = 3
 type = 2
 sound_effect = ExtResource("2_bermg")
-volume = -5
+volume = -10
 pitch_scale = 1.0
 pitch_randomness = 0.1

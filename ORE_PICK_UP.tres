@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://tkpbo1j3rfm8"]
+
+[ext_resource type="Script" path="res://SoundEffectSettings.gd" id="1_3exoi"]
+[ext_resource type="AudioStream" uid="uid://bkppw6ndn8g56" path="res://Audio/zapsplat_multimedia_game_sound_drop_glass_jewel_or_other_item_002_50744.mp3" id="2_1hq1o"]
+
+[resource]
+script = ExtResource("1_3exoi")
+limit = 3
+type = 3
+sound_effect = ExtResource("2_1hq1o")
+volume = -15
+pitch_scale = 0.8
+pitch_randomness = 0.0

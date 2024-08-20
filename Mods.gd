@@ -18,7 +18,7 @@ var bounce_speed = -500
 var bounce_energy_cost = 1.0
 
 var ore_money_scale = 0.0
-var ore_pickup_money_base = .25
+var ore_pickup_money_base = 3.50
 var ore_dropped = 1
 
 var money_scale = 0.0

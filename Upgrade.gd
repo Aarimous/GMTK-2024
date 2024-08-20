@@ -34,7 +34,7 @@ var is_locked :
 		if is_locked:
 			%Locked.show()
 			
-			%Tiers.hide()
+			#%Tiers.hide()
 			%Type.hide()
 			%"Next Upgrade".hide()
 			%Buy.hide()
@@ -44,7 +44,7 @@ var is_locked :
 		else:
 			%Locked.hide()
 			
-			%Tiers.show()
+			#%Tiers.show()
 			%Type.show()
 			%"Next Upgrade".show()
 			%Buy.show()
@@ -75,6 +75,7 @@ func update_buy_button():
 
 
 func _on_buy_button_up() -> void:
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.BUY_UPGRADE)
 	Global.money -= current_upgrade_tier.money_cost
 	Global.mods.apply_upgrade_tier(current_upgrade_tier)
 	current_tier += 1
@@ -97,3 +98,8 @@ func update_ui():
 	%"Cost Text".text = str("$", snappedf(upgrade_tier.money_cost, 0.01))
 	
 	
+
+
+func _on_buy_mouse_entered() -> void:
+	if %Buy.disabled == false:
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.BUY_HOVER)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://v5k2a01o8wtd"]
+[gd_scene load_steps=17 format=3 uid="uid://v5k2a01o8wtd"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_p64ta"]
 [ext_resource type="PackedScene" uid="uid://etqcwr4mjn3o" path="res://Player.tscn" id="3_lwi5s"]
@@ -10,6 +10,37 @@
 [ext_resource type="Theme" uid="uid://riwr042vts6v" path="res://Theme.tres" id="6_resgg"]
 [ext_resource type="PackedScene" uid="uid://byydjde0hluqq" path="res://EnergyUI.tscn" id="7_skafl"]
 [ext_resource type="PackedScene" uid="uid://c7gu8opopilxe" path="res://Upgrades.tscn" id="8_7n8cr"]
+[ext_resource type="PackedScene" uid="uid://d2kwtta1e2s4m" path="res://controls.tscn" id="9_6oclb"]
+[ext_resource type="Script" path="res://Camera.gd" id="11_ffdde"]
+[ext_resource type="Shader" path="res://PostProc.gdshader" id="11_mn4y4"]
+[ext_resource type="AudioStream" uid="uid://hff3megf81eh" path="res://zapsplat_musical_drum_roll_ta_da_24691.mp3" id="14_qoyrf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fy25i"]
+shader = ExtResource("11_mn4y4")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.1
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vvt6"]
+size = Vector2(576, 677)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_p64ta")
@@ -56,20 +87,38 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="Controls" parent="UI" instance=ExtResource("9_6oclb")]
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = ExtResource("6_resgg")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
 [node name="Cave" parent="." instance=ExtResource("4_kgewa")]
 unique_name_in_owner = true
 
 [node name="Camera Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(64, 0)
 script = ExtResource("4_cceof")
 
 [node name="Camera2D" type="Camera2D" parent="Camera Pivot"]
+unique_name_in_owner = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.33
 drag_top_margin = 0.8
 drag_right_margin = 0.33
 drag_bottom_margin = 0.0
+script = ExtResource("11_ffdde")
 
 [node name="Upgrades" parent="." instance=ExtResource("8_7n8cr")]
 process_mode = 3
@@ -77,3 +126,28 @@ visible = false
 
 [node name="Ores" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fy25i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 3776)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(64, 384)
+shape = SubResource("RectangleShape2D_0vvt6")
+
+[node name="On Winning" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_qoyrf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
